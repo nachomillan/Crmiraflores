@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Comunidad de Regantes Miraflores</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header de Administración -->
+    <header class="admin-header">
+        <nav class="admin-nav">
+            <div class="admin-nav-container">
+                <div class="admin-logo">
+                    <i class="fas fa-tint"></i>
+                    <span>CR Miraflores - Admin</span>
+                </div>
+                <div class="admin-user">
+                    <span>Administrador</span>
+                    <a href="index.html" class="btn btn-outline btn-small">
+                        <i class="fas fa-home"></i> Volver al Sitio
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sidebar de Administración -->
+    <aside class="admin-sidebar">
+        <ul class="admin-menu">
+            <li class="admin-menu-item active">
+                <a href="#dashboard" class="admin-menu-link">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="admin-menu-item">
+                <a href="#regantes-admin" class="admin-menu-link">
+                    <i class="fas fa-users"></i>
+                    <span>Gestión de Regantes</span>
+                </a>
+            </li>
+            <li class="admin-menu-item">
+                <a href="#turnos-admin" class="admin-menu-link">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Programar Turnos</span>
+                </a>
+            </li>
+            <li class="admin-menu-item">
+                <a href="#noticias-admin" class="admin-menu-link">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Gestión de Noticias</span>
+                </a>
+            </li>
+            <li class="admin-menu-item">
+                <a href="#reportes" class="admin-menu-link">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reportes</span>
+                </a>
+            </li>
+            <li class="admin-menu-item">
+                <a href="#configuracion" class="admin-menu-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Configuración</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Contenido Principal de Administración -->
+    <main class="admin-main">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="admin-section active">
+            <div class="admin-content">
+                <h1 class="admin-title">Dashboard</h1>
+                
+                <!-- Estadísticas Principales -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users" style="color: #3b82f6;"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>150</h3>
+                            <p>Total Regantes</p>
+                            <small class="stat-change positive">+5 este mes</small>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-map" style="color: #10b981;"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>850</h3>
+                            <p>Hectáreas Totales</p>
+                            <small class="stat-change positive">+12 ha este año</small>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-tint" style="color: #06b6d4;"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>2.5M</h3>
+                            <p>Litros/Día Promedio</p>
+                            <small class="stat-change neutral">Sin cambios</small>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign" style="color: #f59e0b;"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>S/. 45,250</h3>
+                            <p>Ingresos del Mes</p>
+                            <small class="stat-change positive">+8% vs mes anterior</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráficos y Actividad Reciente -->
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Actividad Reciente</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p><strong>Nuevo regante registrado:</strong> Ana María López</p>
+                                    <small>Hace 2 horas</small>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p><strong>Turno programado:</strong> Parcela B-045 para mañana</p>
+                                    <small>Hace 4 horas</small>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-newspaper"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p><strong>Nueva noticia publicada:</strong> Mantenimiento del sistema</p>
+                                    <small>Hace 1 día</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3>Próximos Turnos</h3>
+                        <div class="turnos-proximos">
+                            <div class="turno-item">
+                                <div class="turno-fecha">
+                                    <span class="dia">20</span>
+                                    <span class="mes">ENE</span>
+                                </div>
+                                <div class="turno-info">
+                                    <strong>Juan Carlos Pérez</strong>
+                                    <p>Parcela A-001 | 06:00 - 10:00</p>
+                                </div>
+                            </div>
+                            <div class="turno-item">
+                                <div class="turno-fecha">
+                                    <span class="dia">20</span>
+                                    <span class="mes">ENE</span>
+                                </div>
+                                <div class="turno-info">
+                                    <strong>María Elena González</strong>
+                                    <p>Parcela B-045 | 10:00 - 14:00</p>
+                                </div>
+                            </div>
+                            <div class="turno-item">
+                                <div class="turno-fecha">
+                                    <span class="dia">21</span>
+                                    <span class="mes">ENE</span>
+                                </div>
+                                <div class="turno-info">
+                                    <strong>Pedro Ramírez Silva</strong>
+                                    <p>Parcela C-123 | 06:00 - 11:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gestión de Regantes Section -->
+        <section id="regantes-admin" class="admin-section">
+            <div class="admin-content">
+                <h1 class="admin-title">Gestión de Regantes</h1>
+                
+                <div class="admin-controls">
+                    <div class="admin-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="buscarReganteAdmin" placeholder="Buscar regante...">
+                    </div>
+                    <div class="admin-filters">
+                        <select id="filtroEstado">
+                            <option value="">Todos los estados</option>
+                            <option value="activo">Activos</option>
+                            <option value="inactivo">Inactivos</option>
+                            <option value="suspendido">Suspendidos</option>
+                        </select>
+                        <button class="btn btn-primary" onclick="mostrarFormularioRegante()">
+                            <i class="fas fa-plus"></i> Nuevo Regante
+                        </button>
+                        <button class="btn btn-outline" onclick="exportarRegantes()">
+                            <i class="fas fa-download"></i> Exportar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Parcela</th>
+                                <th>Hectáreas</th>
+                                <th>Teléfono</th>
+                                <th>Email</th>
+                                <th>Estado</th>
+                                <th>Fecha Registro</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminRegantesTableBody">
+                            <!-- Se carga dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programar Turnos Section -->
+        <section id="turnos-admin" class="admin-section">
+            <div class="admin-content">
+                <h1 class="admin-title">Programar Turnos de Riego</h1>
+                
+                <div class="turnos-admin-grid">
+                    <div class="turno-form-card">
+                        <h3>Programar Nuevo Turno</h3>
+                        <form id="formTurno">
+                            <div class="form-group">
+                                <label for="reganteSelect">Regante</label>
+                                <select id="reganteSelect" required>
+                                    <option value="">Seleccionar regante...</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="fechaTurno">Fecha</label>
+                                <input type="date" id="fechaTurno" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="horaInicio">Hora de Inicio</label>
+                                <input type="time" id="horaInicio" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="horaFin">Hora de Fin</label>
+                                <input type="time" id="horaFin" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="observaciones">Observaciones</label>
+                                <textarea id="observaciones" rows="3" placeholder="Observaciones adicionales..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Programar Turno
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="turnos-calendario-admin">
+                        <h3>Calendario de Turnos</h3>
+                        <div id="calendarioAdmin">
+                            <!-- Calendario se genera dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gestión de Noticias Section -->
+        <section id="noticias-admin" class="admin-section">
+            <div class="admin-content">
+                <h1 class="admin-title">Gestión de Noticias</h1>
+                
+                <div class="admin-controls">
+                    <button class="btn btn-primary" onclick="mostrarFormularioNoticia()">
+                        <i class="fas fa-plus"></i> Nueva Noticia
+                    </button>
+                </div>
+
+                <div class="noticias-admin-grid">
+                    <div id="noticiasAdminList">
+                        <!-- Lista de noticias se carga dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reportes Section -->
+        <section id="reportes" class="admin-section">
+            <div class="admin-content">
+                <h1 class="admin-title">Reportes y Estadísticas</h1>
+                
+                <div class="reportes-grid">
+                    <div class="reporte-card">
+                        <h3>Consumo de Agua</h3>
+                        <p>Reporte mensual del consumo de agua por regante</p>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-chart-line"></i> Ver Reporte
+                        </button>
+                    </div>
+                    
+                    <div class="reporte-card">
+                        <h3>Facturación</h3>
+                        <p>Resumen de pagos y facturación mensual</p>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-file-invoice-dollar"></i> Ver Reporte
+                        </button>
+                    </div>
+                    
+                    <div class="reporte-card">
+                        <h3>Turnos Cumplidos</h3>
+                        <p>Estadísticas de cumplimiento de turnos</p>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-clock"></i> Ver Reporte
+                        </button>
+                    </div>
+                    
+                    <div class="reporte-card">
+                        <h3>Regantes Activos</h3>
+                        <p>Lista de regantes activos e inactivos</p>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-users"></i> Ver Reporte
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Configuración Section -->
+        <section id="configuracion" class="admin-section">
+            <div class="admin-content">
+                <h1 class="admin-title">Configuración del Sistema</h1>
+                
+                <div class="config-grid">
+                    <div class="config-card">
+                        <h3>Configuración General</h3>
+                        <form id="configGeneral">
+                            <div class="form-group">
+                                <label for="nombreComunidad">Nombre de la Comunidad</label>
+                                <input type="text" id="nombreComunidad" value="Comunidad de Regantes Miraflores">
+                            </div>
+                            <div class="form-group">
+                                <label for="direccion">Dirección</label>
+                                <input type="text" id="direccion" value="Av. Principal 123, Miraflores">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" value="+51 123 456 789">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" value="contacto@crmiraflores.pe">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </form>
+                    </div>
+                    
+                    <div class="config-card">
+                        <h3>Tarifas y Precios</h3>
+                        <form id="configTarifas">
+                            <div class="form-group">
+                                <label for="tarifaBase">Tarifa Base (S/. por hectárea/mes)</label>
+                                <input type="number" id="tarifaBase" value="25.00" step="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label for="tarifaExceso">Tarifa por Exceso (S/. por m³)</label>
+                                <input type="number" id="tarifaExceso" value="0.15" step="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label for="descuentoPuntual">Descuento Pago Puntual (%)</label>
+                                <input type="number" id="descuentoPuntual" value="5" step="1">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Actualizar Tarifas</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

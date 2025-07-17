@@ -1,0 +1,32 @@
+{
+    "name": "comunidad-regantes-miraflores",
+    "version": "1.0.0",
+    "description": "Sistema web para la gestión de una comunidad de regantes",
+    "main": "index.html",
+    "scripts": {
+        "start": "python -m http.server 8000",
+        "serve": "php -S localhost:8000",
+        "dev": "live-server ."
+    },
+    "keywords": [
+        "regantes",
+        "agricultura",
+        "gestión",
+        "agua",
+        "riego",
+        "comunidad"
+    ],
+    "author": "Comunidad de Regantes Miraflores",
+    "license": "MIT",
+    "devDependencies": {
+        "live-server": "^1.2.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nachomillan/Crmiraflores.git"
+    },
+    "homepage": "https://crmiraflores.pe",
+    "engines": {
+        "node": ">=14.0.0"
+    }
+}

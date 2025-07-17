@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad de Regantes Miraflores</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-tint"></i>
+                    <span>CR Miraflores</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#inicio" class="nav-link active">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#regantes" class="nav-link">Regantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#turnos" class="nav-link">Turnos de Riego</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#noticias" class="nav-link">Noticias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#documentos" class="nav-link">Documentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contacto" class="nav-link">Contacto</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Comunidad de Regantes Miraflores</h1>
+            <p class="hero-subtitle">Gestionando el agua para el futuro de nuestra agricultura</p>
+            <div class="hero-buttons">
+                <a href="#regantes" class="btn btn-primary">Consultar Turnos</a>
+                <a href="#noticias" class="btn btn-secondary">Últimas Noticias</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-number">150</div>
+                <div class="stat-label">Regantes</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">850</div>
+                <div class="stat-label">Hectáreas</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Servicio</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Gestión de Turnos</h3>
+                    <p>Programación y control de los turnos de riego para optimizar el uso del agua.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Registro de Regantes</h3>
+                    <p>Administración completa de la información de todos los miembros de la comunidad.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Control de Consumo</h3>
+                    <p>Monitoreo del consumo de agua y generación de reportes detallados.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Notificaciones</h3>
+                    <p>Alertas automáticas sobre turnos de riego y avisos importantes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regantes Section -->
+    <section id="regantes" class="regantes">
+        <div class="container">
+            <h2 class="section-title">Gestión de Regantes</h2>
+            <div class="regantes-controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="buscarRegante" placeholder="Buscar regante...">
+                </div>
+                <button class="btn btn-primary" onclick="mostrarFormularioRegante()">
+                    <i class="fas fa-plus"></i> Nuevo Regante
+                </button>
+            </div>
+            <div class="regantes-table">
+                <table id="tablaRegantes">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Parcela</th>
+                            <th>Hectáreas</th>
+                            <th>Teléfono</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="regantesTableBody">
+                        <!-- Los datos se cargarán dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Turnos Section -->
+    <section id="turnos" class="turnos">
+        <div class="container">
+            <h2 class="section-title">Turnos de Riego</h2>
+            <div class="turnos-calendar">
+                <div class="calendar-header">
+                    <button class="btn-calendar" onclick="cambiarMes(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h3 id="mesActual"></h3>
+                    <button class="btn-calendar" onclick="cambiarMes(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="calendar-grid" id="calendarioTurnos">
+                    <!-- El calendario se generará dinámicamente -->
+                </div>
+            </div>
+            <div class="turnos-info">
+                <h3>Información del Turno Seleccionado</h3>
+                <div id="infoTurno" class="turno-detalle">
+                    <p>Seleccione un día en el calendario para ver los turnos programados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Noticias Section -->
+    <section id="noticias" class="noticias">
+        <div class="container">
+            <h2 class="section-title">Noticias y Anuncios</h2>
+            <div class="noticias-grid" id="noticiasGrid">
+                <!-- Las noticias se cargarán dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentos Section -->
+    <section id="documentos" class="documentos">
+        <div class="container">
+            <h2 class="section-title">Documentos y Normativas</h2>
+            <div class="documentos-grid">
+                <div class="documento-card">
+                    <div class="documento-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3>Reglamento Interno</h3>
+                    <p>Normativas y reglas de la comunidad de regantes.</p>
+                    <a href="#" class="btn btn-outline">Descargar</a>
+                </div>
+                <div class="documento-card">
+                    <div class="documento-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Estatutos</h3>
+                    <p>Estatutos oficiales de la comunidad.</p>
+                    <a href="#" class="btn btn-outline">Descargar</a>
+                </div>
+                <div class="documento-card">
+                    <div class="documento-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h3>Tarifas 2025</h3>
+                    <p>Tabla de tarifas vigentes para el año 2025.</p>
+                    <a href="#" class="btn btn-outline">Descargar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="contacto">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contacto-content">
+                <div class="contacto-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contacto-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Dirección</strong>
+                            <p>Av. Principal 123, Miraflores<br>Lima, Perú</p>
+                        </div>
+                    </div>
+                    <div class="contacto-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Teléfono</strong>
+                            <p>+51 123 456 789</p>
+                        </div>
+                    </div>
+                    <div class="contacto-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <p>contacto@crmiraflores.pe</p>
+                        </div>
+                    </div>
+                    <div class="contacto-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Horario de Atención</strong>
+                            <p>Lunes a Viernes: 8:00 AM - 5:00 PM<br>Sábados: 8:00 AM - 12:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contacto-form">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form id="contactoForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="asunto">Asunto</label>
+                            <input type="text" id="asunto" name="asunto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Comunidad de Regantes Miraflores</h3>
+                    <p>Comprometidos con la gestión sostenible del agua y el desarrollo agrícola de nuestra comunidad.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#regantes">Regantes</a></li>
+                        <li><a href="#turnos">Turnos</a></li>
+                        <li><a href="#noticias">Noticias</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Comunidad de Regantes Miraflores. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para Regante -->
+    <div id="modalRegante" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitulo">Nuevo Regante</h3>
+                <span class="close" onclick="cerrarModal()">&times;</span>
+            </div>
+            <form id="formRegante">
+                <div class="form-group">
+                    <label for="nombreRegante">Nombre Completo</label>
+                    <input type="text" id="nombreRegante" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="parcelaRegante">Parcela</label>
+                    <input type="text" id="parcelaRegante" name="parcela" required>
+                </div>
+                <div class="form-group">
+                    <label for="hectareasRegante">Hectáreas</label>
+                    <input type="number" id="hectareasRegante" name="hectareas" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefonoRegante">Teléfono</label>
+                    <input type="tel" id="telefonoRegante" name="telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="emailRegante">Email</label>
+                    <input type="email" id="emailRegante" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="estadoRegante">Estado</label>
+                    <select id="estadoRegante" name="estado" required>
+                        <option value="activo">Activo</option>
+                        <option value="inactivo">Inactivo</option>
+                        <option value="suspendido">Suspendido</option>
+                    </select>
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="cerrarModal()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
